@@ -12,7 +12,7 @@ const GameCard = ({ game }: Props) => {
         <Image src={game.background_image} />
       </CardHeader>
       <CardBody>
-        <Heading>
+        <Heading fontSize={'2xl'}>
           {game.name}
         </Heading>
       </CardBody>
