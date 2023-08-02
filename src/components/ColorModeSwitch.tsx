@@ -6,7 +6,7 @@ const ColorModeSwitch = () => {
   return (
     <HStack>
       <Switch id='switch-color-mode' isChecked={colorMode === 'dark' ? true : false} onChange={toggleColorMode} colorScheme='green' />
-      <FormLabel htmlFor='switch-color-mode' mb={0}>Dark Mode</FormLabel>
+      <FormLabel htmlFor='switch-color-mode' mb={0} whiteSpace={'nowrap'}>Dark Mode</FormLabel>
     </HStack>
   )
 }
