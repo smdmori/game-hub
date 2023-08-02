@@ -11,6 +11,7 @@ import SortSelector from "./components/SortSelector"
 export interface GameQuery {
   genre: Genre | null
   platform: Platform | null
+  sortOrder: string
 }
 
 function App() {
@@ -18,14 +19,17 @@ function App() {
 
   return (
     <Grid
-      templateAreas={{
-        base: `"nav" "main"`,
-        lg: `"nav nav" "aside main"`
-      }}
-      templateColumns={{
-        base: "1fr",
-        lg: '250px 1fr'
+      templateAreas={
+        {
+          base: `"nav" "main"`,
+          lg: `"nav nav" "aside main"`
+        }
       }
+      templateColumns={
+        {
+          base: "1fr",
+          lg: '250px 1fr'
+        }
       }
     >
       <GridItem area={'nav'}><Navbar /></GridItem>
@@ -37,7 +41,7 @@ function App() {
       <GridItem area={'main'}>
         <HStack gap={5} marginBottom={5}>
           <PlatformSelector selectedPlatform={gameQuery.platform} onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
-          <SortSelector />
+          <SortSelector selectedSortOrder={gameQuery.sortOrder} onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })} />
         </HStack>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
