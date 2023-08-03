@@ -8,6 +8,7 @@ import PlatformSelector from "./components/PlatformSelector"
 import { Platform } from "./hooks/useGames"
 import SortSelector from "./components/SortSelector"
 import GameHeading from "./components/GameHeading"
+import Footer from "./components/Footer"
 
 export interface GameQuery {
   genre: Genre | null
@@ -23,8 +24,8 @@ function App() {
     <Grid
       templateAreas={
         {
-          base: `"nav" "main"`,
-          lg: `"nav nav" "aside main"`
+          base: `"nav" "main" "footer"`,
+          lg: `"nav nav" "aside main" "footer footer"`
         }
       }
       templateColumns={
@@ -49,6 +50,9 @@ function App() {
           <SortSelector selectedSortOrder={gameQuery.sortOrder} onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })} />
         </HStack>
         <GameGrid gameQuery={gameQuery} />
+      </GridItem>
+      <GridItem area={'footer'} margin={2} padding={10} backgroundColor={'#15294c'} borderRadius={'15px'} color={'white'}>
+        <Footer />
       </GridItem>
     </Grid>
   )
