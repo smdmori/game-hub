@@ -18,7 +18,7 @@ const GenresList = ({ onSelectGenre, selectedGenre }: Props) => {
     <>
       <Heading as={'h2'} fontSize={'2xl'} marginTop={6} marginBottom={2}>Genres</Heading>
       <List>
-        {data.map(genre => <ListItem key={genre.id}>
+        {data?.results.map(genre => <ListItem key={genre.id}>
           <HStack paddingY={1}>
             <Button
               variant={"link"}
