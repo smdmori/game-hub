@@ -5,17 +5,18 @@ import usePlatforms from "../hooks/usePlatforms"
 import useGameQueryStore from "../store"
 
 const PlatformSelector = () => {
-  const { gameQuery, setPlatformID } = useGameQueryStore()
+  const selectedPlatformID = useGameQueryStore(s => s.gameQuery.platformID)
+  const setSelectedPlatformID = useGameQueryStore(s => s.setPlatformID)
 
   const { data } = usePlatforms()
 
-  const selectedPlatform = usePlatform(gameQuery.platformID)
+  const selectedPlatform = usePlatform(selectedPlatformID)
 
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>{selectedPlatform?.name || 'Platforms'}</MenuButton>
       <MenuList>
-        {data?.results.map(platform => <MenuItem key={platform.id} onClick={() => setPlatformID(platform.id)}>{platform.name}</MenuItem>)}
+        {data?.results.map(platform => <MenuItem key={platform.id} onClick={() => setSelectedPlatformID(platform.id)}>{platform.name}</MenuItem>)}
       </MenuList>
     </Menu>
   )

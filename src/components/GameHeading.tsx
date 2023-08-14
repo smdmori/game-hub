@@ -4,10 +4,11 @@ import usePlatform from "../hooks/usePlatform"
 import useGameQueryStore from "../store"
 
 const GameHeading = () => {
-  const { gameQuery } = useGameQueryStore()
+  const selectedPlatformID = useGameQueryStore(s => s.gameQuery.platformID)
+  const selectedGenreID = useGameQueryStore(s => s.gameQuery.genreID)
 
-  const selectedPlatform = usePlatform(gameQuery.platformID)
-  const selectedGenre = useGenre(gameQuery.genreID)
+  const selectedPlatform = usePlatform(selectedPlatformID)
+  const selectedGenre = useGenre(selectedGenreID)
 
   const heading = `${selectedPlatform?.name || ''} ${selectedGenre?.name || ''} Games`
 
