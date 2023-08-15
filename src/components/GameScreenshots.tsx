@@ -1,4 +1,4 @@
-import { Image } from "@chakra-ui/react"
+import { Image, SimpleGrid } from "@chakra-ui/react"
 import useScreenshots from "../hooks/useScreenshots"
 
 interface Props {
@@ -10,9 +10,9 @@ const GameScreenshots = ({ gameID }: Props) => {
 
   return (
 
-    <>
+    <SimpleGrid columns={{ base: 1, md: 2 }} gap={2} marginTop={2}>
       {screenshots?.results.map(file => <Image src={file.image} />)}
-    </>
+    </SimpleGrid>
   )
 }
 
