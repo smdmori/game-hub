@@ -5,7 +5,7 @@ import SearchInput from "./SearchInput"
 
 const Navbar = () => {
   return (
-    <HStack padding='10px'>
+    <HStack padding={4}>
       <Image src={logo} alt="GameHub Logo" boxSize={'60px'} />
       <SearchInput />
       <ColorModeSwitch />
